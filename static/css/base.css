@@ -4,26 +4,30 @@
 body {
     font-family: "Avenir";
     font-size: 1rem;
-    background: #fffefe;
+    background: #fff5f0; 
+    color: #333;
 }
 
 header {
-    background: #dfeef6;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .btn-primary {
-    background: #dd3446;
-    border-color: #DE7C00;
+    background: #9c0fb8;
+    border-color: black;
+    color: #fff;
 }
 
+
 .btn-primary:hover {
-    background: #971B2F;
-    border-color: #DE7C00;
+    background: #c053ce;
+    border-color: black;
 }
 
 .btn-secondary {
     background: #c0c0c0;
-    border-color: #DE7C00;
+    border-color: black;
 }
 
 .btn-secondary:hover {
