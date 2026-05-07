@@ -5,19 +5,19 @@ DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS temp_cars;
 
 CREATE TABLE dealer (
-id VARCHAR(20) NOT NULL,
-name VARCHAR(20) NOT NULL,
-password_hash VARCHAR(20) NOT NULL,
-email VARCHAR(20),
+id VARCHAR(50) NOT NULL,
+name VARCHAR(50) NOT NULL,
+password_hash VARCHAR(50) NOT NULL,
+email VARCHAR(50),
 PRIMARY KEY (id)
 );
 
 CREATE TABLE contacts (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-name VARCHAR(20) NOT NULL,
-email VARCHAR(20) NOT NULL,
+name VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
 phone VARCHAR(20),
-message VARCHAR(20),
+message VARCHAR(200),
 car_id INTEGER
 );
 
@@ -28,19 +28,19 @@ INSERT INTO contacts (name, email,phone, message,car_id) VALUES ('superman', 'su
 
 CREATE TABLE user (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-username VARCHAR(20) NOT NULL,
-password_hash VARCHAR(20) NOT NULL
+username VARCHAR(50) NOT NULL,
+password_hash VARCHAR(50) NOT NULL
 );
 
 INSERT INTO user (username, password_hash) VALUES ('admin', 'admin');
 
 
-CREATE TABLE cars (
+CREATE TABLE menu (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-year int NOT NULL,
-make VARCHAR(20) NOT NULL,
-model VARCHAR(20) NOT NULL,
-body_styles TEXT,
+name VARCHAR(50) NOT NULL,
+description TEXT,
+price int NOT NULL,
+category VARCHAR(50) NOT NULL,
 featured int
 );
 
