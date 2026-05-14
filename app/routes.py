@@ -130,4 +130,33 @@ def init_routes(app):
 
     @app.route('/menu/<int:table_no>')
     def menu(table_no):
-        return f"This is Menu for Table {table_no}"
+
+        foods = [
+
+            {
+                "name": "Burger",
+                "price": 120,
+                "image": "img/Cheeseburger.png"
+            },
+
+            {
+                "name": "Pizza",
+                "price": 250,
+                "image": "img/Pizza Margherita.png"
+            },
+
+            {
+                "name": "Pasta",
+                "price": 180,
+                "image": "img/White Sauce Pasta.png"
+            }
+
+        ]
+
+        return render_template(
+            'menu.html',
+            foods=foods,
+            table_no=table_no
+        )
+
+       
