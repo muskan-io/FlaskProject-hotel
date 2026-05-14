@@ -128,4 +128,6 @@ def init_routes(app):
         car['image'] = '../static/img/car_automobile_' + image + '.svg'
         return render_template('car_details.html', car=dict(car))
 
-
+    @app.route('/menu/<int:table_no>')
+    def menu(table_no):
+        return f"This is Menu for Table {table_no}"
