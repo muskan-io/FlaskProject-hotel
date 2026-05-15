@@ -1,10 +1,10 @@
 # app/routes.py
 import ast
 from flask import abort, render_template
-from flask import request, jsonify
+from flask import request,session, jsonify
 from .db import get_db
 from werkzeug.security import check_password_hash
-from flask import render_template, request, flash, redirect, url_for, session
+from flask import render_template, request, flash, redirect, url_for
 
 def init_routes(app):
     @app.route('/')
@@ -159,3 +159,57 @@ def init_routes(app):
             table_no=table_no
         )
     
+    @app.route('/update_cart', methods=['POST'])
+    def update_cart():
+
+        session['cart'] = request.json
+
+        return jsonify({"message":"cart updated"})
+    @app.route('/cart')
+    def cart_page():
+
+        foods = [
+
+            {
+                "name": "Burger",
+                "price": 120,
+                "image": "img/burger.jpg"
+            },
+
+            {
+                "name": "Pizza",
+                "price": 250,
+                "image": "img/pizza.jpg"
+            },
+
+            {
+                "name": "Pasta",
+                "price": 180,
+                "image": "img/pasta.jpg"
+            }
+
+        ]
+
+        cart = session.get('cart', {})
+
+        cart_items = []
+
+        total = 0
+
+        for item_id, qty in cart.items():
+
+            food = foods[int(item_id)]
+
+            food['qty'] = qty
+
+            food['subtotal'] = food['price'] * qty
+
+            total += food['subtotal']
+
+            cart_items.append(food)
+
+        return render_template(
+            'cart.html',
+            cart_items=cart_items,
+            total=total
+        )
