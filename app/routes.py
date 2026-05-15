@@ -158,5 +158,4 @@ def init_routes(app):
             foods=foods,
             table_no=table_no
         )
-
-       
+    
