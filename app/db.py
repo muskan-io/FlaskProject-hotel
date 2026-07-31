@@ -142,7 +142,10 @@ def init_db(app):
                     "img/chocolate_lava_cake.png", 
                     "Desserts", 
                     "Indulgent, warm chocolate cake with a rich, molten chocolate center that flows out upon the first bite, served with a dusting of powdered sugar."
-                )
+                ),
+                
+                
+                
             ]
             cursor.executemany(
                 "INSERT INTO foods (name, price, image, category, description, available) VALUES (%s, %s, %s, %s, %s, TRUE)",
