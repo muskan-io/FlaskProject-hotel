@@ -21,7 +21,7 @@ A simple web application built using Flask for the backend and a Bootstrap-power
 To start the Flask application, simply run:
 
 ```bash
-python3 run.py
+python run.py
 ```
 
 Then navigate to `http://127.0.0.1:8080` in your browser.
